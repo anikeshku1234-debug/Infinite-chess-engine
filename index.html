@@ -1705,12 +1705,9 @@
     window.addEventListener('DOMContentLoaded', () => {
       UI.init();
     });
- <script>
+<script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('data:text/javascript;charset=utf-8,' + encodeURI(`
-      self.addEventListener('install', e => self.skipWaiting());
-      self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => new Response('Offline'))));
-    `));
+    navigator.serviceWorker.register('./sw.js');
   }
 </script>
   </script>
